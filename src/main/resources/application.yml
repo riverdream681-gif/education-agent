@@ -66,13 +66,13 @@ logging:
     org.springframework.ai: DEBUG
 
 # Flyway 迁移
-spring:
-  flyway:
-    enabled: true
-    locations: classpath:db/migration
-    baseline-on-migrate: true
-    baseline-version: 0
-    table: flyway_schema_history_edu
+
+flyway:
+  enabled: true
+  locations: classpath:db/migration
+  baseline-on-migrate: true
+  baseline-version: 0
+  table: flyway_schema_history_edu
 
 # MyBatis Plus
 mybatis-plus:

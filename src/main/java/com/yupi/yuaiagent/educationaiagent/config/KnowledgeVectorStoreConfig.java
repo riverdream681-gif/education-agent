@@ -8,6 +8,7 @@ import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.pgvector.PgVectorStore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import static org.springframework.ai.vectorstore.pgvector.PgVectorStore.PgIndexT
 /**
  * PGVector 知识库向量存储配置
  */
+
 @Configuration
 public class KnowledgeVectorStoreConfig {
 

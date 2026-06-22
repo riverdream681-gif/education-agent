@@ -8,6 +8,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 import java.util.Map;
@@ -16,10 +20,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
+
+@SpringBootTest
 class KnowledgeSearchServiceTest {
 
-    @Mock
+//    @Mock
+    @Autowired
+    @Qualifier("knowledgeVectorStore")
     private VectorStore vectorStore;
 
     private KnowledgeSearchService service;
@@ -54,8 +62,8 @@ class KnowledgeSearchServiceTest {
     @Test
     void searchBySubject_shouldFilterBySubject() {
         Document doc = new Document("导数的几何意义...", Map.of("subject", "高中数学"));
-        when(vectorStore.similaritySearch(any(SearchRequest.class)))
-                .thenReturn(List.of(doc));
+//        when(vectorStore.similaritySearch(any(SearchRequest.class)))
+//                .thenReturn(List.of(doc));
 
         List<Document> results = service.searchBySubject("导数", "高中数学", 3);
 

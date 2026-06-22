@@ -19,6 +19,8 @@ import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
@@ -121,7 +123,8 @@ public class LoveApp {
 
     // AI 恋爱知识库问答功能
 
-    @Resource
+    @Autowired
+    @Qualifier("loveAppVectorStore")
     private VectorStore loveAppVectorStore;
 
     @Resource
